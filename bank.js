@@ -16,33 +16,44 @@ let card2 = {
     account: 300,
 };
 
-let bank = [card1, card2];
-let checkTF;
+let card3 = {
+    number: 34484,
+    bank: "My bank",
+    name: "Кирилл",
+    surname: "Гончаров",
+    code: 2112,
+    account: 360,
+};
+
+let bank = [card1, card2, card3];
+let checkTF = false;
+let checkCard;
+let bankAccount;
 
 let cashMashine3 = {
-    // number: 3,
-    showBalance: function (card, sum) {
-        console.log(card.account);
-        console.log(card.account - sum);
-    },
-    checkUser: function (check) {
-        let checkCard;
+    checking: function (check) {
         for (let i = 0; i < bank.length; i++) {
             checkCard = bank[i].number;
+            bankAccount = bank[i].account;
+            if (check == checkCard) {
+                checkTF = true;
+                alert("Вы успешно проверены");
+                let ques1 = prompt("Введите сумму для вывода");
+                console.log(bankAccount);
+                console.log(bankAccount - ques1);
+                break;
+            }
+            else {
+                checkTF = false;
+                // alert("Неверный номер карты. Введите снова");
+            }
         }
-        if (check == checkCard) {
-            alert("Ok");
-            checkTF = true;
-        }
-        else {
-            alert("No!");
-            checkTF = false;
-        }
-    }
+        checking2();
+    },
 };
-if (checkTF == true) {
-    cashMashine3.showBalance(card1, prompt("Введите сумму для вывода"));
-} else {
-    alert("Неверный номер карты");
+function checking2() {
+    if (checkTF == false) {
+        alert("Неверный номер карты. Введите снова");
+    }
 }
-cashMashine3.checkUser(prompt("Введите свой номер карточки"));
+cashMashine3.checking(prompt("Введите свой номер карточки"));
