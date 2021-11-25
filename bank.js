@@ -29,13 +29,21 @@ let bank = [card1, card2, card3];
 let checkTF = false;
 let checkCard;
 let bankAccount;
+let nameB1;
+let surnameU1;
+let nameU1;
+let codeC1;
 
 let cashMashine3 = {
-    checking: function (check) {
+    checking: function (numC, nameB, nameU, surnameU, codeC) {
         for (let i = 0; i < bank.length; i++) {
+            codeC1 = bank[i].code;
+            surnameU1 = bank[i].surname;
+            nameU1 = bank[i].name;
+            nameB1 = bank[i].bank;
             checkCard = bank[i].number;
             bankAccount = bank[i].account;
-            if (check == checkCard) {
+            if (numC == checkCard && nameB == nameB1 && nameU == nameU1 && surnameU == surnameU1 && codeC == codeC1) {
                 checkTF = true;
                 alert("Вы успешно проверены");
                 let ques1 = prompt("Введите сумму для вывода");
@@ -56,4 +64,4 @@ function checking2() {
         alert("Неверный номер карты. Введите снова");
     }
 }
-cashMashine3.checking(prompt("Введите свой номер карточки"));
+cashMashine3.checking(prompt("Введите свой номер карточки"), prompt("Введите название банка"), prompt("Введите своё имя"), prompt("Введите свою фамилию"), prompt("Введите код карты"));
