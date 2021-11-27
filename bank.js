@@ -39,6 +39,7 @@ let cashMashine3 = {
         for (let i = 0; i < bank.length; i++) {
             codeC1 = bank[i].code;
             checkCard = bank[i].number;
+            let bankAccount = bank[i].account
             if (numC == checkCard && codeC == codeC1) {
                 checkTF = true;
                 alert("Вы успешно проверены");
