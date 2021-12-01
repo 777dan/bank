@@ -45,7 +45,8 @@ let cashMashine3 = {
                 alert("Вы успешно проверены");
                 let ques1 = prompt("Введите сумму для вывода");
                 console.log(bankAccount);
-                console.log(bankAccount - ques1);
+                bank[i].account = bankAccount - ques1;
+                console.log(bank[i].account);
                 break;
             }
             else {
